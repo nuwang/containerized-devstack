@@ -51,8 +51,8 @@ jobs:
           tag: "${{ github.ref == 'refs/heads/main' && 'latest' || github.sha }}"
         run: |
           for c in controller compute-1 compute-2; do
-            docker commit $c bobuhiro11/containerized-devstack-$c:$tag
-            docker push bobuhiro11/containerized-devstack-$c:$tag
+            docker commit $c cloudve/containerized-devstack-$c:$tag
+            docker push cloudve/containerized-devstack-$c:$tag
           done
       - name: Test Images
         if: github.event_name != 'schedule'

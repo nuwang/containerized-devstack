@@ -17,7 +17,7 @@ in less than a minute thereafter.
 An example is shown below:
 
 ```bash
-curl -sLO https://raw.githubusercontent.com/bobuhiro11/containerized-devstack/main/docker-compose.yaml
+curl -sLO https://raw.githubusercontent.com/cloudve/containerized-devstack/main/docker-compose.yaml
 sudo docker-compose up
 ```
 
