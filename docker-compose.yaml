@@ -16,6 +16,7 @@ services:
       net.ipv6.conf.default.disable_ipv6: 0
     environment:
       - HOST_IP=172.28.0.2
+      - OS_PASSWORD=${OS_PASSWORD:-password}
     networks:
       management_network:
         ipv4_address: 172.28.0.2
@@ -37,6 +38,7 @@ services:
       net.ipv6.conf.default.disable_ipv6: 0
     environment:
       - HOST_IP=172.28.0.3
+      - OS_PASSWORD=${OS_PASSWORD:-password}
     networks:
       management_network:
         ipv4_address: 172.28.0.3
@@ -56,6 +58,7 @@ services:
       net.ipv6.conf.default.disable_ipv6: 0
     environment:
       - HOST_IP=172.28.0.4
+      - OS_PASSWORD=${OS_PASSWORD:-password}
     networks:
       management_network:
         ipv4_address: 172.28.0.4

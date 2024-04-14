@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 EXPOSE 80 5000 8773 8774 8775 8776 9292
 ENV DEBIAN_FRONTEND=noninteractive
-ENV DEVSTACK_COMMIT=ad029c0e8b66d81889c80d4a68b4654dd169fecf
+ENV DEVSTACK_COMMIT=stable/zed
 
 ENV OS_REGION_NAME=RegionOne
 ENV OS_PROJECT_DOMAIN_ID=default
@@ -52,7 +52,9 @@ COPY compute/devstack.service /etc/systemd/system/
 COPY test.bash /bin/
 COPY pre-commit.bash /bin/
 
-RUN systemctl enable devstack
+# set admin password from env var
+RUN echo "ADMIN_PASSWORD=$OS_PASSWORD" > /opt/stack/devstack/.localrc.password \
+  && systemctl enable devstack
 
 STOPSIGNAL SIGRTMIN+3
 CMD [ "/sbin/init" ]
