@@ -19,6 +19,8 @@ services:
     networks:
       management_network:
         ipv4_address: 172.28.0.2
+    ports:
+      - 80:80
   compute-1:
     container_name: compute-1
     hostname: compute-1
