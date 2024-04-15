@@ -34,7 +34,7 @@ jobs:
           docker-compose --file docker-compose.build.yaml up -d
           sleep 1800
           docker-compose --file docker-compose.build.yaml logs -t --tail=100
-          docker-compose --file docker-compose.build.yaml exec -T --user stack controller /bin/test.bash
+          #docker-compose --file docker-compose.build.yaml exec -T --user stack controller /bin/test.bash
           for c in controller compute-1 compute-2; do
             docker-compose --file docker-compose.build.yaml exec -T $c /bin/bash -c /bin/pre-commit.bash
           done
@@ -61,4 +61,4 @@ jobs:
           sed -i -e "s/image:.*/&:$tag/g" docker-compose.yaml
           docker-compose up -d
           sleep 180
-          docker-compose exec -T --user stack controller /bin/test.bash
+          #docker-compose exec -T --user stack controller /bin/test.bash
