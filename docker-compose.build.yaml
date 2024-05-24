@@ -1,6 +1,7 @@
 version: '3'
 services:
   controller:
+    image: cloudve/containerized-devstack-controller
     container_name: controller
     hostname: controller
     build:
@@ -21,6 +22,7 @@ services:
       management_network:
         ipv4_address: 172.28.0.2
   compute-1:
+    image: cloudve/containerized-devstack-compute-1
     container_name: compute-1
     hostname: compute-1
     build:
@@ -41,6 +43,7 @@ services:
       management_network:
         ipv4_address: 172.28.0.3
   compute-2:
+    image: cloudve/containerized-devstack-compute-2
     container_name: compute-2
     hostname: compute-2
     build:

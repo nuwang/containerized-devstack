@@ -52,9 +52,7 @@ COPY compute/devstack.service /etc/systemd/system/
 COPY test.bash /bin/
 COPY pre-commit.bash /bin/
 
-# set admin password from env var
-RUN echo "ADMIN_PASSWORD=$OS_PASSWORD" > /opt/stack/devstack/.localrc.password \
-  && systemctl enable devstack
+RUN systemctl enable devstack
 
 STOPSIGNAL SIGRTMIN+3
 CMD [ "/sbin/init" ]
