@@ -28,6 +28,7 @@ RUN apt-get update \
     git \
     curl \
     init \
+    iptables \
     ebtables \
     jq \
     openvswitch-switch \
