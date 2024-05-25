@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 EXPOSE 80 5000 8773 8774 8775 8776 9292
 ENV DEBIAN_FRONTEND=noninteractive
-ENV DEVSTACK_COMMIT=stable/2024.1
+ENV DEVSTACK_COMMIT=stable/2023.1
 
 ENV OS_REGION_NAME=RegionOne
 ENV OS_PROJECT_DOMAIN_ID=default
@@ -32,6 +32,8 @@ RUN apt-get update \
     ebtables \
     jq \
     openvswitch-switch \
+    locales \
+  && locale-gen en_US.UTF-8 \
   && apt-get -y clean \
   && rm -rf /var/lib/apt/lists/* \
   && curl https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh > /bin/wait-for-it.sh \

@@ -21,6 +21,13 @@ First set a new pasword in devstack-password.secret
 sudo docker compose up
 ```
 
+Also needed to install this on the host prior to docker compose up or vswitch would fail to start in the container:
+```
+sudo apt-get install openvswitch-switch-dpdk
+```
+
+Also be liberal in opening ports due to: https://stackoverflow.com/questions/12983689/failed-to-reach-erlang-port-mapper-couchbase-error
+
 # Usage
 
 The docker-compose command launches an OpenStack environment based
